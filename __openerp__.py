@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2011 Enapps LTD (<http://www.enapps.co.uk>).
+#    Copyright (C) 2011 Enapps LTD <http://www.enapps.co.uk>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -17,10 +17,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
     'name': 'Enapps Import Data tool',
-    'version': '18',
+    'version': '7.0.1.1',
     'depends': [
         'base',
     ],
@@ -29,35 +28,30 @@
     'website': 'http://www.enapps.co.uk/',
     'category': 'Tool',
     'init_xml': [],
-    'demo_xml': [
+    'demo_xml': [],
+    'update_xml': [
+        'security/security_groups.xml',
+        'security/ir.model.access.csv',
+        'ea_import_template_view.xml',
+        'ea_import_template_line_view.xml',
+        'ea_import_template_line_calc_field_view.xml',
+        'ea_import_template_line_boolean_field_view.xml',
+        'ea_import_template_line_regexp_field_view.xml',
+        'ea_import_chain_view.xml',
+        'ea_import_chain_result_view.xml',
+        'ea_import_log_view.xml',
+        'ea_import_scheduler.xml',
+        'ea_import_scheduler_data.xml',
+        'ea_export_config_view.xml',
+        'wizard/import_wizard_view.xml',
+        'configs/mysql_config_view.xml',
+        'configs/ftp_config_view.xml',
+        'data/update_templates.xml',
     ],
-
-    'update_xml':  [
-                    'security/security_groups.xml',
-                    'security/ir.model.access.csv',
-                    'ea_import_template_view.xml',
-                    'ea_import_template_line_view.xml',
-                    'ea_import_template_line_calc_field_view.xml',
-                    'ea_import_template_line_boolean_field_view.xml',
-                    'ea_import_template_line_regexp_field_view.xml',
-                    'ea_import_chain_view.xml',
-                    'ea_import_chain_result_view.xml',
-                    'ea_import_log_view.xml',
-                    'ea_import_scheduler.xml',
-                    'ea_import_scheduler_data.xml',
-                    'ea_export_config_view.xml',
-                    'wizard/import_wizard_view.xml',
-                    'configs/mysql_config_view.xml',
-                    'configs/ftp_config_view.xml',
-                    'data/update_templates.xml',
-                    ],
     'active': False,
     'installable': True,
     'images': ['images/chain_form.png', 'images/template_list.png'],
     'external_dependencies': {
-                            'python': ['MySQLdb']  # On Linux can be installed using 'apt-get install python-mysqldb'
-                            }
-
+        'python': ['pymysql']
+    }
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

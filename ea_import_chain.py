@@ -23,7 +23,7 @@ from osv import fields
 import base64
 import csv
 import re
-import MySQLdb as mdb
+import pymysql as mdb
 import datetime
 from cStringIO import StringIO
 try:

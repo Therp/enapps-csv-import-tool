@@ -17,9 +17,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 from osv import osv, fields
-import MySQLdb as mdb
+import pymsql as mdb
 
 
 class mysql_config(osv.osv):
@@ -44,11 +43,18 @@ class mysql_config(osv.osv):
     def test_connection(self, cr, uid, ids, context={}):
         for config in self.browse(cr, uid, ids, context=context):
             try:
-                connection = mdb.connect(user=config.username, host=config.host, port=config.port, passwd=config.passwd, db=config.db)
+                connection = mdb.connect(
+                    user=config.username, host=config.host, port=config.port,
+                    passwd=config.passwd, db=config.db
+                )
                 connection.close()
             except:
-                raise osv.except_osv(('Error !'), ("Can't establish connection to %s! Please, check settings." % config.host))
-            raise osv.except_osv(('Success!'), ("Connection to %s established!" % config.host))
-
-mysql_config()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+                raise osv.except_osv(
+                    ('Error !'),
+                    ("Can't establish connection to %s! Please, check settings." %
+                     config.host)
+                )
+            raise osv.except_osv(
+                ('Success!'),
+                ("Connection to %s established!" % config.host)
+            )
