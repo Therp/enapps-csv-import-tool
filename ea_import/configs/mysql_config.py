@@ -18,7 +18,7 @@
 #
 ##############################################################################
 from osv import osv, fields
-import pymsql as mdb
+import pymysql as mdb
 
 
 class mysql_config(osv.osv):
